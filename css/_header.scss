@@ -1,0 +1,42 @@
+header {
+    grid-area: header;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 20px;
+    line-height: 30px;
+    font-size: 20px;
+    box-shadow: 0 0 4px #999;
+    background-color: aquamarine;
+
+    > .logo {
+        display: inline-block;
+        float: left;
+    }
+    > .right {
+        display: inline-block;
+        float: right;
+
+        > * {
+            display: inline-block;
+            float: left;
+        }
+        > .link {
+            color: #63f;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        > .user-img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #eee;
+            border: 1px solid #ccc;
+        }
+        > .user-name {
+            margin: 0 40px 0 10px;
+        }
+    }
+}
