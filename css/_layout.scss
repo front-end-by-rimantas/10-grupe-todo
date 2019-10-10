@@ -19,10 +19,10 @@ body {
 main {
     display: grid;
     grid-area: content;
-    background-color: cornflowerblue;
     grid-template-areas:
         ". form .";
     grid-template-columns: 1fr 400px 1fr;
+    padding: 40px 0;
 }
 @media ( max-width: 500px) {
     main {

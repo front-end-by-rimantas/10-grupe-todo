@@ -1,6 +1,6 @@
 "use strict";
 
-let currentPage = 'list';
+let currentPage = 'register';
 
 function renderHeader() {
     let HTML = '';
@@ -37,4 +37,33 @@ function renderHeader() {
     return document.querySelector('header').innerHTML = HTML;
 }
 
+function renderContent() {
+    let HTML = '';
+
+    switch (currentPage) {
+        case 'register':
+            HTML = renderForm( registerForm );
+            break;
+    
+        case 'login':
+            HTML = renderForm( loginForm );
+            break;
+    
+        case 'list':
+            HTML = renderTasks();
+            break;
+        
+        case 'item':
+            HTML = renderForm( itemForm );
+            break;
+    
+        default:
+            break;
+    }
+
+    return document.querySelector('main').innerHTML = HTML;
+}
+
 renderHeader();
+renderContent();
+

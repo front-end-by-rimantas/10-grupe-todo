@@ -41,10 +41,10 @@ main {
   -ms-grid-row: 2;
   -ms-grid-column: 2;
   grid-area: content;
-  background-color: cornflowerblue;
       grid-template-areas: ". form .";
   -ms-grid-columns: 1fr 400px 1fr;
       grid-template-columns: 1fr 400px 1fr;
+  padding: 40px 0;
 }
 
 @media (max-width: 500px) {
@@ -55,11 +55,76 @@ main {
   }
 }
 
+.btn {
+  display: inline-block;
+  padding: 20px;
+  background-color: #63f;
+  color: #fff;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #3300cc;
+  -webkit-box-shadow: 0 2px 8px #999;
+          box-shadow: 0 2px 8px #999;
+}
+
 form {
   -ms-grid-row: 1;
   -ms-grid-column: 2;
   grid-area: form;
-  background-color: lightcoral;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ".";
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  row-gap: 20px;
+}
+
+form > .form-row {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: ".";
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+form > .form-row > label {
+  font-size: 20px;
+}
+
+form > .form-row > input {
+  padding: 5px 10px;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+form > .form-row > textarea {
+  height: 90px;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 20px;
+  line-height: 20px;
+  resize: none;
+}
+
+form > .form-row.checkbox {
+  display: inline-block;
+}
+
+form > .form-row.checkbox > label {
+  display: inline-block;
+  float: left;
+  margin-left: 10px;
+}
+
+form > .form-row.checkbox > input {
+  display: inline-block;
+  float: left;
 }
 
 header {
@@ -73,7 +138,6 @@ header {
   font-size: 20px;
   -webkit-box-shadow: 0 0 4px #999;
           box-shadow: 0 0 4px #999;
-  background-color: aquamarine;
 }
 
 header > .logo {

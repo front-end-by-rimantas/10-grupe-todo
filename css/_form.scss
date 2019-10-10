@@ -1,4 +1,49 @@
 form {
     grid-area: form;
-    background-color: lightcoral;
+    display: grid;
+    grid-template-areas:
+        ".";
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+
+    > .form-row {
+        display: grid;
+        grid-template-areas:
+            ".";
+        grid-template-columns: 1fr;
+
+        > label {
+            font-size: 20px;
+        }
+
+        > input {
+            padding: 5px 10px;
+            font-size: 20px;
+            line-height: 20px;
+        }
+
+        > textarea {
+            height: 90px;
+            width: 100%;
+            padding: 5px 10px;
+            font-size: 20px;
+            line-height: 20px;
+            resize: none;
+        }
+
+        &.checkbox {
+            display: inline-block;
+
+            > label {
+                display: inline-block;
+                float: left;
+                margin-left: 10px;
+            }
+    
+            > input {
+                display: inline-block;
+                float: left;
+            }
+        }
+    }
 }
