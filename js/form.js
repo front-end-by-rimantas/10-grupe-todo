@@ -8,17 +8,17 @@ function renderForm( data ) {
         
         if ( formItem.tagType && formItem.tagType === 'checkbox' ) {
             HTML += `<div class="form-row checkbox">
-                        <input type="${formItem.tagType ? formItem.tagType : 'text'}">
-                        <label>${formItem.label}</label>
+                        <input name="${formItem.name}" type="${formItem.tagType ? formItem.tagType : 'text'}">
+                        <label for="${formItem.name}">${formItem.label}</label>
                     </div>`;
         } else {
-            let field = `<input type="${formItem.tagType ? formItem.tagType : 'text'}">`;
+            let field = `<input name="${formItem.name}" type="${formItem.tagType ? formItem.tagType : 'text'}">`;
             if ( formItem.tag === 'textarea' ) {
-                field = `<textarea></textarea>`;
+                field = `<textarea name="${formItem.name}"></textarea>`;
             }
 
             HTML += `<div class="form-row">
-                        <label>${formItem.label}</label>
+                        <label for="${formItem.name}">${formItem.label}</label>
                         ${field}
                     </div>`;
         }
@@ -27,6 +27,6 @@ function renderForm( data ) {
     return `<form>
                 <h1>${data.title}</h1>
                 ${HTML}
-                <div class="btn">${data.button}</div>
+                <div class="btn" onclick="validate()">${data.button}</div>
             </form>`;
 }

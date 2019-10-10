@@ -3,12 +3,12 @@
 const registerForm = {
     title: 'Register',
     fields: [
-        { label: 'Name', tag: 'input' },
-        { label: 'Surname', tag: 'input' },
-        { label: 'Email', tag: 'input', tagType: 'email' },
-        { label: 'Password', tag: 'input', tagType: 'password' },
-        { label: 'Repeat password', tag: 'input', tagType: 'password' },
-        { label: 'I agree to Terms and Conditions', tag: 'input', tagType: 'checkbox' }
+        { label: 'Name', name: 'name', tag: 'input' },
+        { label: 'Surname', name: 'surname', tag: 'input' },
+        { label: 'Email', name: 'email', tag: 'input', tagType: 'email' },
+        { label: 'Password', name: 'password', tag: 'input', tagType: 'password' },
+        { label: 'Repeat password', name: 'rep-pass', tag: 'input', tagType: 'password' },
+        { label: 'I agree to Terms and Conditions', name: 'agree', tag: 'input', tagType: 'checkbox' }
     ],
     button: 'Register NOW!'
 }
@@ -16,8 +16,8 @@ const registerForm = {
 const loginForm = {
     title: 'Login',
     fields: [
-        { label: 'Email', tag: 'input', tagType: 'email' },
-        { label: 'Password', tag: 'input', tagType: 'password' }
+        { label: 'Email', name: 'email', tag: 'input', tagType: 'email' },
+        { label: 'Password', name: 'pass', tag: 'input', tagType: 'password' }
     ],
     button: 'Login into system'
 }
@@ -25,9 +25,9 @@ const loginForm = {
 const itemForm = {
     title: 'Task details',
     fields: [
-        { label: 'Subject', tag: 'input' },
-        { label: 'Description', tag: 'textarea' },
-        { label: 'Due date', tag: 'input', tagType: 'date' }
+        { label: 'Subject', name: 'subject', tag: 'input' },
+        { label: 'Description', name: 'description', tag: 'textarea' },
+        { label: 'Due date', name: 'date', tag: 'input', tagType: 'date' }
     ],
     button: 'Save'
 }
