@@ -66,4 +66,3 @@ function renderContent() {
 
 renderHeader();
 renderContent();
-
