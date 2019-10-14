@@ -64,5 +64,10 @@ function renderContent() {
     return document.querySelector('main').innerHTML = HTML;
 }
 
+function loadPage() {
+    renderHeader();
+    renderContent();
+}
+
 renderHeader();
 renderContent();
