@@ -6,7 +6,6 @@ body * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  word-break: break-all;
 }
 
 .container {
@@ -55,6 +54,13 @@ main {
   }
 }
 
+main.list {
+      grid-template-areas: unset;
+  -ms-grid-columns: (minmax(280px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
 .btn {
   display: inline-block;
   padding: 20px;
@@ -71,6 +77,18 @@ main {
   background-color: #3300cc;
   -webkit-box-shadow: 0 2px 8px #999;
           box-shadow: 0 2px 8px #999;
+}
+
+.btn.floating-action {
+  position: fixed;
+  bottom: 80px;
+  right: 80px;
+  padding: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  line-height: 80px;
+  font-size: 44px;
 }
 
 form {
@@ -174,4 +192,21 @@ header > .right > .user-img {
 
 header > .right > .user-name {
   margin: 0 40px 0 10px;
+}
+
+.todo {
+  border: 3px solid #ccc;
+}
+
+.todo > .subject {
+  padding: 10px;
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.todo > .description {
+  padding: 10px;
+  font-size: 18px;
+  line-height: 24px;
+  color: #666;
 }

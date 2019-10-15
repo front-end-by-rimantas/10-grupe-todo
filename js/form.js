@@ -28,5 +28,9 @@ function renderForm( data ) {
                 <h1>${data.title}</h1>
                 ${HTML}
                 <div class="btn" onclick="validate()">${data.button}</div>
+                ${data.back ?
+                    `<div class="btn" onclick="back()">Cancel</div>`
+                    : ''
+                }
             </form>`;
 }

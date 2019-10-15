@@ -1,0 +1,15 @@
+.todo {
+    border: 3px solid #ccc;
+
+    > .subject {
+        padding: 10px;
+        font-size: 24px;
+        line-height: 30px;
+    }
+    > .description {
+        padding: 10px;
+        font-size: 18px;
+        line-height: 24px;
+        color: #666;
+    }
+}
