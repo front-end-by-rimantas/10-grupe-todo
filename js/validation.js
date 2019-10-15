@@ -34,44 +34,58 @@ function validate() {
 
     console.log(formData);
     // validuojame
-
-    // name
-    if ( formData.name && isValidName(formData.name) === false ) {
-        formIsValid = false;
-    }
-
-    // surname
-    if ( formData.surname && isValidName(formData.surname) === false ) {
-        formIsValid = false;
-    }
-
-    // email
-    if ( formData.email && isValidEmail(formData.email) === false ) {
-        formIsValid = false;
-    }
-
-    // password
-    if ( formData.password && isValidPassword(formData.password) === false ) {
-        formIsValid = false;
-    }
-
-    // password
-    if ( formData['rep-pass'] && formData.password !== formData['rep-pass'] ) {
-        console.log('ERROR: passwordai nesutampa');
-        formIsValid = false;
-    }
-
-    // agree
-    if ( formData.agree && formData.agree === false ) {
-        formIsValid = false;
-    }
     
-    if ( currentPage === 'register' && formIsValid === true ) {
-        registerUser( formData );
+    if ( currentPage === 'register' ) {
+        // name
+        if ( isValidName(formData.name) === false ) {
+            formIsValid = false;
+        }
+
+        // surname
+        if ( isValidName(formData.surname) === false ) {
+            formIsValid = false;
+        }
+
+        // email
+        if ( isValidEmail(formData.email) === false ) {
+            formIsValid = false;
+        }
+
+        // password
+        if ( isValidPassword(formData.password) === false ) {
+            formIsValid = false;
+        }
+
+        // password
+        if ( formData['rep-pass'] && formData.password !== formData['rep-pass'] ) {
+            console.log('ERROR: passwordai nesutampa');
+            formIsValid = false;
+        }
+
+        // agree
+        if ( formData.agree === false ) {
+            formIsValid = false;
+        }
+        
+        if ( formIsValid === true ) {
+            registerUser( formData );
+        }
     }
 
-    if ( currentPage === 'login' && formIsValid === true ) {
-        loginUser( formData );
+    if ( currentPage === 'login' ) {
+        // email
+        if ( isValidEmail(formData.email) === false ) {
+            formIsValid = false;
+        }
+
+        // password
+        if ( isValidPassword(formData.password) === false ) {
+            formIsValid = false;
+        }
+        
+        if ( formIsValid === true ) {
+            loginUser( formData );
+        }
     }
 
     return formIsValid;

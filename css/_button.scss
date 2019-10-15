@@ -13,4 +13,16 @@
         background-color: darken(#63f, 20);
         box-shadow: 0 2px 8px #999;
     }
+
+    &.floating-action {
+        position: fixed;
+        bottom: 80px;
+        right: 80px;
+        padding: 0;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        line-height: 80px;
+        font-size: 44px;
+    }
 }

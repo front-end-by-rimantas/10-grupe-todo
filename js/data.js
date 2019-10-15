@@ -17,7 +17,7 @@ const loginForm = {
     title: 'Login',
     fields: [
         { label: 'Email', name: 'email', tag: 'input', tagType: 'email' },
-        { label: 'Password', name: 'pass', tag: 'input', tagType: 'password' }
+        { label: 'Password', name: 'password', tag: 'input', tagType: 'password' }
     ],
     button: 'Login into system'
 }
@@ -29,5 +29,6 @@ const itemForm = {
         { label: 'Description', name: 'description', tag: 'textarea' },
         { label: 'Due date', name: 'date', tag: 'input', tagType: 'date' }
     ],
-    button: 'Save'
+    button: 'Save',
+    back: true
 }
