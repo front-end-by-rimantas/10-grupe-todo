@@ -94,7 +94,7 @@ function renderContent() {
     
         case 'list':
             document.querySelector('main').classList.add('list');
-            HTML = renderTasks();
+            HTML = todo.list();
             break;
         
         case 'item':

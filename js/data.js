@@ -27,7 +27,7 @@ const itemForm = {
     fields: [
         { label: 'Subject', name: 'subject', tag: 'input' },
         { label: 'Description', name: 'description', tag: 'textarea' },
-        { label: 'Due date', name: 'date', tag: 'input', tagType: 'date' }
+        // { label: 'Due date', name: 'date', tag: 'input', tagType: 'date' }
     ],
     button: 'Save',
     back: true

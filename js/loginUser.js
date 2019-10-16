@@ -24,6 +24,7 @@ function loginUser( userData ) {
 
     // nusiunciame i "user task list" puslapi
     currentPage = 'list';
+    todo.init();
     loadPage();
     
     return;

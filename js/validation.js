@@ -12,7 +12,10 @@ function validate() {
 
     // issitraukiame visa info
     fields.forEach( formRow => {
-        const element = formRow.querySelector('input');
+        let element = formRow.querySelector('input');
+        if ( !element ) {
+            element = formRow.querySelector('textarea');
+        }
         const name = element.name;
         const type = element.type;
         
@@ -20,6 +23,7 @@ function validate() {
             case 'text':
             case 'email':
             case 'password':
+            case 'textarea':
                 formData[name] = element.value;
                 break;
 
@@ -32,7 +36,6 @@ function validate() {
         }
     });
 
-    console.log(formData);
     // validuojame
     
     if ( currentPage === 'register' ) {
@@ -85,6 +88,22 @@ function validate() {
         
         if ( formIsValid === true ) {
             loginUser( formData );
+        }
+    }
+
+    if ( currentPage === 'item' ) {
+        // subject
+        if ( isValidSubject(formData.subject) === false ) {
+            formIsValid = false;
+        }
+
+        // description
+        if ( isValidDescription(formData.description) === false ) {
+            formIsValid = false;
+        }
+        
+        if ( formIsValid === true ) {
+            todo.add( formData );
         }
     }
 
@@ -192,6 +211,33 @@ function isValidPassword( pass ) {
 
     if ( pass.length > 100 ) {
         console.log('ERROR: password ilgis daugiau nei 100 simboliu');
+        return false;
+    }
+
+    return valid;
+}
+
+function isValidSubject( subject ) {
+    let valid = true;
+
+    if ( subject === '' ) {
+        console.log('ERROR: subject negali buti tuscias');
+        return false;
+    }
+
+    if ( subject.length > 30 ) {
+        console.log('ERROR: subject ilgis daugiau nei 30 simboliu');
+        return false;
+    }
+
+    return valid;
+}
+
+function isValidDescription( description ) {
+    let valid = true;
+
+    if ( description.length > 200 ) {
+        console.log('ERROR: description ilgis daugiau nei 200 simboliu');
         return false;
     }
 
