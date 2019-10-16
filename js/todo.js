@@ -2,9 +2,20 @@
 
 const todo = (function(){
     let todoList = [];
+    let logged = '';
+    let currentUser = {};
+
+    init();
 
     // uzsikrauname task'us is localStorage
-    // todoList = loggedUser.todoList;
+    if ( currentUser.todoList ) {
+        todoList = currentUser.todoList;
+    }
+
+    function init(){
+        logged = localStorage.getItem('login-user');
+        currentUser = users.filter( user => user.email === logged )[0];
+    }
 
     const list = () => {
         let HTML = '';
@@ -23,22 +34,38 @@ const todo = (function(){
 
     const add = ( todo ) => {
         // istraukiame esamu vartotoju duomenis
-        const users = JSON.parse(localStorage.getItem('users'));
+        let users = JSON.parse(localStorage.getItem('users'));
 
         // istraukiame tik prisijungusio vartotojo duomenis
-        
+        // iskelem auksciau visoje logikoje
+        // let currentUser = users.filter( user => user.email === logged )[0];
 
         // atskirai laikome visu kitu vartotoju duomenis
-        // otherUsersData = [a, c]
+        const otherUsers =  users.filter( user => user.email !== logged );
 
         // prisijungusiam vartotojui irasome nauja task'a
-        // add todo -> [b.todoList.push(todo)]
+        if ( currentUser.todoList ) {
+            currentUser = {
+                ...currentUser,
+                todoList: [
+                    ...currentUser.todoList,
+                    todo
+                ]
+            }
+        } else {
+            currentUser = {
+                ...currentUser,
+                todoList: [
+                    todo
+                ]
+            }
+        }
 
         // apjungiame visu vartotoju duomenis i viena array
-        // otherUsersData + loggedUserData -> [a, c, b]
+        users = [...otherUsers, currentUser];
 
         //apjungtus duomenis issaugome localStorage
-
+        localStorage.setItem('users', JSON.stringify(users));
 
         todoList.push( todo );
         return refresh();
@@ -60,6 +87,7 @@ const todo = (function(){
     }
 
     return {
+        init: init,
         list: list,
         add: add
     }
